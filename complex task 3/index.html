@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Урок 3. Усложненное задание</title>
+</head>
+<body>
+	<script>
+		
+		var str = "урок-3-был слишком легким";
+		str = str[0].toUpperCase() + str.slice(1);
+		console.log(str);
+
+		for (var i = 0; i < str.length; i++) {
+			if (str[i] = '-') {
+				newStr = str.replace('-', ' ');
+				str = newStr;
+			}
+		}
+		console.log(str);
+
+		var strIndex = str.indexOf('легким');
+		var str2 = str.slice(strIndex);
+		console.log(str2);
+		str3 = str2.slice(0, 4) + 'о';
+		console.log(str3);
+		
+		var arr = [20, 33, 1, 'Человек', 2, 3];
+		var arr2 = [];
+		var arrSum = 0;
+		for (var i = 0; i < arr.length; i++) {
+			arr2[i] = Math.pow(arr[i], 3);
+			if (!isNaN(arr2[i])) {
+				arrSum += arr2[i];
+			}
+		}
+		console.log(arr2);
+		console.log(arrSum);
+		var arrSqrt = Math.sqrt(arrSum);
+		console.log(arrSqrt);
+		
+		
+	</script>
+</body>
+</html>
