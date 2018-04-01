@@ -61,13 +61,15 @@ var mainList = {
 		}
 	},
 	chooseShopItems: function chooseShopItems() {
-		var items = prompt('Перечислите через запятую товары', '');
-		if ((typeof(items)) === 'string' && (typeof(items)) !== null && items != '') {
-			mainList.shopItems = items.split(',');
-			mainList.shopItems.push(prompt('Подождите, еще ', ''));
-			mainList.shopItems.sort();
-		} else {
-			items = prompt('Перечислите через запятую товары', '');
+		for (var i = 0; i < 1; i++) {
+			var items = prompt('Перечислите через запятую товары', '');
+			if ((typeof(items)) === 'string' && (typeof(items)) !== null && items != '') {
+				mainList.shopItems = items.split(',');
+				mainList.shopItems.push(prompt('Подождите, еще ', ''));
+				mainList.shopItems.sort();
+			} else {
+				i--;
+			}
 		}
 	}
 };
