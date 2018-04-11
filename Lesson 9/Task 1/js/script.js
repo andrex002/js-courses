@@ -91,12 +91,14 @@ window.addEventListener('DOMContentLoaded', function () {
 			overlay.style.display = 'block';
 			document.body.style.overflow = 'hidden';
 		});
-		
+	};	
+
 		close.addEventListener('click', function () {
 			overlay.style.display = 'none';
-			descriptionBtn[i].classList.remove('more-splash');
+			for (var j = 0; j < descriptionBtn.length; j++) {
+				descriptionBtn[j].classList.remove('more-splash');
+			}
 			document.body.style.overflow = '';
-			
 		})
-	};
+//Модальное окно - конец		
 });
