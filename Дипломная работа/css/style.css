@@ -432,7 +432,7 @@
   width: 230px;
   height: 500px;
   margin: 0 auto;
-  background: url("../img/construct-1.png") center no-repeat;
+  background: url("../img/construct-5.png") center no-repeat;
   background-size: 70%;
 }
 
@@ -695,6 +695,6 @@
   width: 180px;
   height: 320px;
   border-radius: 8px;
-  background: #f2f2f2 url("../img/construct-1.png") center no-repeat;
+  background: #f2f2f2 url("../img/construct-5.png") center no-repeat;
   background-size: 60%;
 }
