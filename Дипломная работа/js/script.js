@@ -118,9 +118,15 @@ window.addEventListener('DOMContentLoaded', function() {
 	//Слайдер - конец
 
 	let ready = document.getElementById('ready');
+	let resultCount = document.getElementsByClassName('result-count');
+	let progressBar_3 = document.querySelector('.progress-bar-3');
 
 	ready.addEventListener('click', function() {
 		custom.style.display = 'none';
 		main.style.display = 'block';
+		resultCount[1].innerHTML = '0%';
+		progressBar_3.style.height = '0%';
 	});
+
+	
 });

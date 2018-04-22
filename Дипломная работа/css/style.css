@@ -161,6 +161,11 @@
   background: url("../img/candidate-2.png") center no-repeat;
 }
 
+.main-cards-item .candidate-block .photo-3 {
+  background: url("../img/construct-5.png") center no-repeat;
+  background-size: contain;
+}
+
 .main-cards-item .candidate-block .result {
   display: flex;
   flex-direction: column;
@@ -190,11 +195,15 @@
 }
 
 .main-cards-item .candidate-block .result .progress-bar-1 {
-  height: 35%;
+  height: 15%;
 }
 
 .main-cards-item .candidate-block .result .progress-bar-2 {
-  height: 65%;
+  height: 30%;
+}
+
+.main-cards-item .candidate-block .result .progress-bar-3 {
+  height: 55%;
 }
 
 .main-cards-item .name {
