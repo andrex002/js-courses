@@ -128,5 +128,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		progressBar_3.style.height = '0%';
 	});
 
-	
+	let reset = document.getElementById('reset');
+
+	reset.addEventListener('click', function() {
+		custom.style.display = 'flex';
+		main.style.display = 'none';
+	});
 });
