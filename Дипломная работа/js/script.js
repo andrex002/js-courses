@@ -44,8 +44,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	ageValue.addEventListener('change', function() {
 		
-		if (isNaN(ageValue.value) || ageValue.value == '') {
-			age.textContent = '0 лет';
+		if (isNaN(ageValue.value) || ageValue.value == '' || ageValue.value > 80 || ageValue.value < 25) {
+			age.textContent = 'Введите корректный возраст';
 		} else {
 			age.textContent = ageValue.value + ' лет';
 		}
@@ -119,13 +119,24 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	let ready = document.getElementById('ready');
 	let resultCount = document.getElementsByClassName('result-count');
+	let progressBar_1 = document.querySelector('.progress-bar-1');
+	let progressBar_2 = document.querySelector('.progress-bar-2');
 	let progressBar_3 = document.querySelector('.progress-bar-3');
+	let message = document.createElement('div');
+
+	message.style.color = 'red';
 
 	ready.addEventListener('click', function() {
-		custom.style.display = 'none';
-		main.style.display = 'block';
-		resultCount[1].innerHTML = '0%';
-		progressBar_3.style.height = '0%';
+		if (nameValue.value == '' || ageValue.value == '' || bioValue.value == '') {
+			customChild[0].appendChild(message);
+			message.innerHTML = 'Заполните пожалуйста все поля';
+		
+		} else {
+			custom.style.display = 'none';
+			main.style.display = 'block';
+			resultCount[1].innerHTML = '0%';
+			progressBar_2.style.height = '0%';
+		}
 	});
 
 	let reset = document.getElementById('reset');
@@ -133,5 +144,24 @@ window.addEventListener('DOMContentLoaded', function() {
 	reset.addEventListener('click', function() {
 		custom.style.display = 'flex';
 		main.style.display = 'none';
+		message.remove();
+	});
+
+	//Кнопка “Провести честное голосование”
+	let voting = document.getElementById('voting');
+	
+
+	voting.addEventListener('click', function() {
+		let candidatePoints_1 = Math.floor(Math.random()*100);
+		let candidatePoints_2 = Math.floor(Math.random()*(100 - candidatePoints_1));
+		let candidatePoints_3 = 100 - candidatePoints_1 - candidatePoints_2;
+		
+		resultCount[0].innerHTML = candidatePoints_1 + '%';
+		resultCount[1].innerHTML = candidatePoints_2 + '%';
+		resultCount[2].innerHTML = candidatePoints_3 + '%';
+		progressBar_1.style.height = candidatePoints_1 + '%';
+		progressBar_2.style.height = candidatePoints_2 + '%';
+		progressBar_3.style.height = candidatePoints_3 + '%';
+
 	});
 });

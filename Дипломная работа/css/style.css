@@ -238,6 +238,7 @@
 .main-cards-item .bio {
   font-size: 13px;
   font-weight: 400;
+  overflow: hidden;
 }
 
 .main-buttons {
