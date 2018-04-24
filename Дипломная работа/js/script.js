@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		for (i = 0; i < customChild.length; i++) {
 			customChild[i].style.display = 'block';
 		}
-	})
+	});
 
 	let mainCardsItem = document.querySelectorAll('.main-cards-item');
 	let name = mainCardsItem[1].querySelector('.name');
@@ -149,12 +149,32 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//Кнопка “Провести честное голосование”
 	let voting = document.getElementById('voting');
-	
+	let candidatePoints_1;
+	let candidatePoints_2;
+	let candidatePoints_3;
+
+	function favorite (n1, n2, n3) {
+		if (n1 > n2 && n1 > n3) {
+			mainCardsItem[0].classList.add('main-cards-item-active');
+			mainCardsItem[1].classList.remove('main-cards-item-active');
+			mainCardsItem[2].classList.remove('main-cards-item-active');
+		} 
+		if (n2 > n1 && n2 > n3) {
+			mainCardsItem[1].classList.add('main-cards-item-active');
+			mainCardsItem[0].classList.remove('main-cards-item-active');
+			mainCardsItem[2].classList.remove('main-cards-item-active');
+		} 
+		if (n3 > n1 && n3 > n2) {
+			mainCardsItem[2].classList.add('main-cards-item-active');
+			mainCardsItem[1].classList.remove('main-cards-item-active');
+			mainCardsItem[0].classList.remove('main-cards-item-active');
+		}
+	};
 
 	voting.addEventListener('click', function() {
-		let candidatePoints_1 = Math.floor(Math.random()*100);
-		let candidatePoints_2 = Math.floor(Math.random()*(100 - candidatePoints_1));
-		let candidatePoints_3 = 100 - candidatePoints_1 - candidatePoints_2;
+		candidatePoints_1 = Math.floor(Math.random()*100);
+		candidatePoints_2 = Math.floor(Math.random()*(100 - candidatePoints_1));
+		candidatePoints_3 = 100 - candidatePoints_1 - candidatePoints_2;
 		
 		resultCount[0].innerHTML = candidatePoints_1 + '%';
 		resultCount[1].innerHTML = candidatePoints_2 + '%';
@@ -163,5 +183,24 @@ window.addEventListener('DOMContentLoaded', function() {
 		progressBar_2.style.height = candidatePoints_2 + '%';
 		progressBar_3.style.height = candidatePoints_3 + '%';
 
+		favorite(candidatePoints_1, candidatePoints_2, candidatePoints_3);
 	});
+
+	//Кнопка “Вмешаться в выборы”
+	let crime = document.getElementById('crime');
+	crime.addEventListener('click', function() {
+		candidatePoints_1 = Math.floor(Math.random()*75);
+		candidatePoints_2 = Math.floor(Math.random()*(75 - candidatePoints_1)) + 25;
+		candidatePoints_3 = 100 - candidatePoints_1 - candidatePoints_2;
+		
+		resultCount[0].innerHTML = candidatePoints_1 + '%';
+		resultCount[1].innerHTML = candidatePoints_2 + '%';
+		resultCount[2].innerHTML = candidatePoints_3 + '%';
+		progressBar_1.style.height = candidatePoints_1 + '%';
+		progressBar_2.style.height = candidatePoints_2 + '%';
+		progressBar_3.style.height = candidatePoints_3 + '%';
+
+		favorite(candidatePoints_1, candidatePoints_2, candidatePoints_3);
+	});
+	
 });
