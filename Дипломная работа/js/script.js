@@ -44,11 +44,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	ageValue.addEventListener('change', function() {
 		
-		if (isNaN(ageValue.value) || ageValue.value == '' || ageValue.value > 80 || ageValue.value < 25) {
-			age.textContent = 'Введите корректный возраст';
-		} else {
+		//if (isNaN(ageValue.value) || ageValue.value == '' || ageValue.value > 80 || ageValue.value < 25) {
+			//age.textContent = 'Введите корректный возраст';
+		//	alert('Введите корректный возраст (от 25 до 80)');
+		//} else {
 			age.textContent = ageValue.value + ' лет';
-		}
+		//}
 
 	});
 
@@ -131,11 +132,19 @@ window.addEventListener('DOMContentLoaded', function() {
 			customChild[0].appendChild(message);
 			message.innerHTML = 'Заполните пожалуйста все поля';
 		
+		} else if (isNaN(ageValue.value) || ageValue.value == '' || ageValue.value > 80 || ageValue.value < 25) {
+			alert('Введите корректный возраст (от 25 до 80)');
+			ageValue.value = '';
+			ageValue.focus();
 		} else {
 			custom.style.display = 'none';
 			main.style.display = 'block';
-			resultCount[1].innerHTML = '0%';
+			for (let i = 0; i < resultCount.length; i++) {
+				resultCount[i].innerHTML = '0%';
+			}
+			progressBar_1.style.height = '0%';
 			progressBar_2.style.height = '0%';
+			progressBar_3.style.height = '0%';
 		}
 	});
 
@@ -145,6 +154,17 @@ window.addEventListener('DOMContentLoaded', function() {
 		custom.style.display = 'flex';
 		main.style.display = 'none';
 		message.remove();
+		nameValue.value = '';
+		ageValue.value = '';
+		maleValue.checked = 'checked';
+		viewsValue.options[0].selected = 'selected';
+		bioValue.value = '';
+
+		if (maleValue.checked) {
+			personEasy.style.backgroundImage = 'url(img/construct-5.png)';
+			preview.style.backgroundImage = 'url(img/construct-5.png)';
+		}
+
 	});
 
 	//Кнопка “Провести честное голосование”
