@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	let bioValue = document.getElementById('bio');
 	let radio = document.querySelector('.radio');
 	let inputSex = radio.getElementsByTagName('input');
+	let inputGender = document.querySelectorAll('[name = "sex"]');
 
 	nameValue.addEventListener('change', function() {
 		
@@ -58,15 +59,27 @@ window.addEventListener('DOMContentLoaded', function() {
 			sex.textContent = event.target.value;
 		}
 
-		if (event.target.value == 'Женский') {
-			personEasy.style.backgroundImage = 'url(img/construct-1.png)';
-			preview.style.backgroundImage = 'url(img/construct-1.png)';
-			photo3.style.backgroundImage = personEasy.style.backgroundImage;
-		} else {
-			personEasy.style.backgroundImage = 'url(img/construct-5.png)';
-			preview.style.backgroundImage = 'url(img/construct-5.png)';
-			photo3.style.backgroundImage = personEasy.style.backgroundImage;
-		}
+		//if (event.target.value == 'Женский') {
+		//	personEasy.style.backgroundImage = 'url(img/construct-1.png)';
+		//	preview.style.backgroundImage = 'url(img/construct-1.png)';
+		//	photo3.style.backgroundImage = personEasy.style.backgroundImage;
+		//} else {
+		//	personEasy.style.backgroundImage = 'url(img/construct-5.png)';
+		//	preview.style.backgroundImage = 'url(img/construct-5.png)';
+		//	photo3.style.backgroundImage = personEasy.style.backgroundImage;
+		//}
+	});
+
+	inputGender[0].addEventListener('click', function() {
+		personEasy.style.backgroundImage = 'url(img/construct-5.png)';
+		preview.style.backgroundImage = 'url(img/construct-5.png)';
+		photo3.style.backgroundImage = personEasy.style.backgroundImage;
+	});
+
+	inputGender[1].addEventListener('click', function() {
+		personEasy.style.backgroundImage = 'url(img/construct-1.png)';
+		preview.style.backgroundImage = 'url(img/construct-1.png)';
+		photo3.style.backgroundImage = personEasy.style.backgroundImage;
 	});
 	
 	viewsValue.addEventListener('change', function() {
